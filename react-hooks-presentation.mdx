@@ -1,0 +1,303 @@
+import { CodeSurfer } from 'mdx-deck-code-surfer'
+import { Head, Appear, Notes, Image } from 'mdx-deck'
+import SyntaxHighlighter from 'react-syntax-highlighter/prism'
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+
+import { dark } from 'mdx-deck/themes'
+import { Split } from 'mdx-deck/layouts'
+
+export const theme = dark
+
+<Head>
+  <title>React Hooks Intro</title>
+</Head>
+
+# React Hooks Intro
+
+## 夏阑
+
+---
+
+# What are React Hooks?
+
+---
+
+Use `state` and `other` React features without writing a `class`.
+
+---
+
+### One more time...
+
+Use state and React lifecycle features without using `Class` and React Component `Lifecycle` methods.
+
+---
+
+Support it from 16.7.0-alpha.0 Until [**16.8**](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) offically
+
+---
+
+[React Hooks RFC - 2018-10-25](https://github.com/reactjs/rfcs/blob/master/text/0068-react-hooks.md)
+
+---
+
+# DEMO
+
+[A Simple Counter](https://codesandbox.io/s/new)
+
+---
+
+# The most important Two Questions
+
+<Appear>when you learn something new...</Appear>
+
+---
+
+**Why** does it exist?
+
+---
+
+**What** problems does it `TRY` to solve?
+
+---
+
+# Why React?
+
+<ul style={{ textAlign: 'left' }}>
+  <Appear>
+    <li>Composition</li>
+    <li>Unidirectional Dataflow</li>
+    <li>Declarative</li>
+    <li>Explicit Mutations</li>
+    <li>Just JavaScript</li>
+  </Appear>
+</ul>
+---
+
+# How do you build `React` App?
+
+<ul style={{ textAlign: 'left' }}>
+  <Appear>
+    <li>React.creatClass</li>
+    <li>
+      <a
+        target="__blank"
+        href="https://reactjs.org/blog/2015/01/27/react-v0.13.0-beta-1.html"
+      >
+        React.Component@0.13.0-beta-1
+      </a>
+    </li>
+    <li>
+      <a
+        target="__blank"
+        href="https://reactjs.org/blog/2015/10/07/react-v0.14.html#stateless-function-components"
+      >
+        React Stateless Functional Components@0.14.0
+      </a>
+    </li>
+    <li>
+      <a
+        target="__blank"
+        href="https://github.com/facebook/react/blob/master/CHANGELOG.md#react-21"
+      >
+        React.PureComponent@15.3.0
+      </a>
+    </li>
+  </Appear>
+</ul>
+
+---
+
+# Code Reuse
+
+<ul style={{ textAlign: 'left' }}>
+  <Appear>
+    <li>Mixin</li>
+    <li>
+      HoC: <code>withAgencyRole/withAccessCheck</code>
+    </li>
+    <li>
+      Render Props: <code>mkt-activity</code>
+    </li>
+    <li>Contextual Components</li>
+    <li>Container Component</li>
+    <li>...</li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurfer
+  title="Nested HoCs"
+  code={require('!raw-loader!./codes/hoc.js')}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+# What problems does it solve?
+
+---
+
+# React State
+
+---
+
+`React.useState`
+
+---
+
+<CodeSurfer
+  title="useState"
+  code={require('!raw-loader!./codes/Activity.js')}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: 'Use ⬆️ and ⬇️ keys' },
+    { lines: [2], notes: 'Call useState' },
+    { lines: [3], notes: 'Use the cardId state' },
+    { lines: [12, 20, 23], notes: 'Use setCardId API to update the state' },
+  ]}
+/>
+
+---
+
+# React Lifecycle methods
+
+---
+
+`React.useEffect`
+
+---
+
+<SyntaxHighlighter language="javascript" style={atomDark}>
+  {`useEffect(() => { util.pageMonitor('a522.b11588') }, [])`}
+</SyntaxHighlighter>
+
+---
+
+<SyntaxHighlighter language="javascript" style={atomDark}>
+  {` 
+    useEffect(() => {
+      queryDataBoardTips({ marketingType }).then(({ data }) => setTips(data))
+    }, [marketingType])
+  `}
+</SyntaxHighlighter>
+
+---
+
+<SyntaxHighlighter language="javascript" style={atomDark}>
+  {require('!raw-loader!./codes/Sider.js')}
+</SyntaxHighlighter>
+
+---
+
+# Decouple business logic from UI
+
+---
+
+Build your own Custom Hook
+
+---
+
+Encapsulation
+
+---
+
+Composition
+
+---
+
+Reusability
+
+---
+
+# DEMO
+
+Form
+
+---
+
+<CodeSurfer
+  title="useForm"
+  code={require('!raw-loader!./codes/useForm.js')}
+  lang="javascript"
+  p
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: 'Use ⬆️ and ⬇️ keys' },
+    { lines: [4], notes: 'form@values #state' },
+    { lines: [5], notes: 'form@errors #state' },
+    { lines: [6], notes: 'form@isSubmitting #state' },
+    { range: [14, 18], notes: 'handleSubmit #logic' },
+    { range: [20, 26], notes: 'handleChange #logic' },
+    { range: [8, 12], notes: 'useEffect #effect' },
+    { range: [28, 33], notes: 'The return value for useForm Hook' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Form"
+  code={require('!raw-loader!./codes/Form.js')}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: 'Use ⬆️ and ⬇️ keys' },
+    { lines: [5], notes: 'Call useForm' },
+    { lines: [19], notes: 'Register onSubmit handler with handleSubmit' },
+    { lines: [25, 41], notes: 'Add isDanager class if it has error' },
+    { lines: [28, 44], notes: 'Register onChange handler with handleChange' },
+  ]}
+/>
+
+---
+
+# Rules of Hooks
+
+- Only Call Hooks at the Top Level
+  - NO loops, conditions, or nested functions
+- Only Call Hooks from React Functions
+  - Or from custom Hooks
+
+---
+
+# What do React Hooks Replace?
+
+<ul style={{ textAlign: 'left' }}>
+  <Appear>
+    <li><strong>Class</strong> components</li>
+    <li>
+      The <strong>render prop</strong> pattern
+    </li>
+  </Appear>
+</ul>
+---
+
+# What Do Hooks Not Replace?
+
+<ul style={{ textAlign: 'left' }}>
+  <Appear>
+    <li>Redux</li>
+    <li>
+      HoC(Higher Order Components): Redux/Layout/Configuratin
+      provider、authentication/authorization、i18n...
+    </li>
+    <li>Separation between container and display components</li>
+  </Appear>
+</ul>
+
+---
+
+# How React Hooks Work?
+
+---
+
+# Exercise
+
+Implement useState with useReducer?

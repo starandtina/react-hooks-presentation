@@ -1,0 +1,17 @@
+{
+  "name": "react-hooks-presentation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "starandtina",
+  "license": "MIT",
+  "scripts": {
+    "start": "mdx-deck react-hooks-presentation.mdx -h dev.alipay.net",
+    "build": "mdx-deck build --no-html react-hooks-presentation.mdx"
+  },
+  "devDependencies": {
+    "mdx-deck": "^1.8.2",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^1.0.0",
+    "react-syntax-highlighter": "^10.2.1"
+  }
+}
